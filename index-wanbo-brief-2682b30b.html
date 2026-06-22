@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料索引 · 万博体育</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            background-color: #f5f0e9;
+            color: #2c2c2c;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page-wrap {
+            max-width: 880px;
+            width: 100%;
+        }
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0 1.2rem 0;
+            border-bottom: 1px solid #d8cfc0;
+            margin-bottom: 2.8rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .top-nav .brand {
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.8px;
+            color: #4f3e2b;
+            padding: 0.2rem 0.8rem 0.2rem 0;
+        }
+        .top-nav .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            font-size: 0.95rem;
+        }
+        .top-nav .nav-links a {
+            color: #5f4b33;
+            text-decoration: none;
+            border-bottom: 1px dotted transparent;
+            transition: border-color 0.2s;
+        }
+        .top-nav .nav-links a:hover {
+            border-bottom-color: #9b7f5f;
+        }
+
+        /* 标题 & 正文 */
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #2f2419;
+            margin-bottom: 0.25rem;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #7d6b55;
+            margin-bottom: 2.2rem;
+            border-left: 3px solid #c9b79b;
+            padding-left: 1rem;
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin: 2.4rem 0 1rem 0;
+            color: #3d3227;
+            border-bottom: 1px solid #ddd2c2;
+            padding-bottom: 0.3rem;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        .intro-text {
+            font-size: 1.05rem;
+            margin-bottom: 1.8rem;
+        }
+
+        /* 引用 / 提示框 */
+        .callout {
+            background-color: #ede7dd;
+            border-left: 5px solid #b29c80;
+            padding: 1rem 1.5rem;
+            margin: 1.8rem 0;
+            font-size: 0.96rem;
+            color: #3b342b;
+            border-radius: 0 6px 6px 0;
+        }
+        .callout strong {
+            font-weight: 500;
+            color: #4b3823;
+        }
+
+        /* 三个场景卡片 (轻量卡片) */
+        .scene-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.8rem 0 1rem 0;
+        }
+        .scene-card {
+            flex: 1 1 220px;
+            background: #faf7f1;
+            padding: 1.4rem 1.2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #e4dbcf;
+            transition: box-shadow 0.2s;
+        }
+        .scene-card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+        }
+        .scene-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #3d2e1d;
+            letter-spacing: 0.3px;
+        }
+        .scene-card p {
+            font-size: 0.93rem;
+            margin-bottom: 0;
+            color: #4d4033;
+        }
+
+        /* 常见说明 (类似FAQ简摘) */
+        .faq-note {
+            margin: 1.8rem 0 2.2rem 0;
+            background: #f3ede5;
+            padding: 1.2rem 1.8rem;
+            border-radius: 20px 8px 20px 8px;
+        }
+        .faq-note details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #dacfc0;
+            padding-bottom: 0.6rem;
+        }
+        .faq-note details:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-note summary {
+            font-weight: 500;
+            color: #4f3c27;
+            cursor: pointer;
+            font-size: 0.98rem;
+            padding: 0.2rem 0;
+        }
+        .faq-note details p {
+            font-size: 0.92rem;
+            margin: 0.6rem 0 0.2rem 0;
+            color: #4b3e2e;
+            padding-left: 0.3rem;
+        }
+
+        /* 页脚 */
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #d6ccbb;
+            font-size: 0.88rem;
+            color: #6f5e4a;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        footer a {
+            color: #5f4b33;
+            text-decoration: underline 1px dotted #b4a18a;
+            text-underline-offset: 3px;
+        }
+        footer a:hover {
+            text-decoration-style: solid;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body { padding: 1.2rem 1rem; }
+            h1 { font-size: 1.8rem; }
+            .top-nav { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+            .top-nav .nav-links { gap: 1rem; flex-wrap: wrap; }
+            .scene-grid { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="brand">◈ 资料整理</span>
+        <div class="nav-links">
+            <a href="#">索引</a>
+            <a href="#">场景</a>
+            <a href="#">说明</a>
+        </div>
+    </nav>
+
+    <!-- 标题与副线 -->
+    <h1>万博体育 · 信息归档</h1>
+    <div class="subhead">从资料整理与索引视角，梳理常用内容模块</div>
+
+    <!-- 核心介绍 -->
+    <div class="intro-text">
+        <p>当面对一个主题时，最好的方式不是急于评价，而是先建立一份干净的归档。这份页面围绕<a href="https://index-wanbo.com" style="color: #3f2f1d; text-decoration: underline 1px solid #b8a387; text-underline-offset: 3px;">万博体育</a>的相关资料展开，不涉及主观判断，只做结构化的陈列与说明。以下内容均来自公开可参考的信息片段，经过筛选和归并，方便需要快速了解框架的人使用。</p>
+        <p>归档的意义在于降低检索成本。因此这里不堆砌冗余描述，而是用标题、卡片和简要说明来划分区域。每个模块都可以独立阅读，也可以连起来形成一条粗略的认知路径。</p>
+    </div>
+
+    <!-- 提示框（引用风格） -->
+    <div class="callout">
+        <strong>归档说明</strong> —— 以下三个场景模块分别对应不同情境下的参考需求。每个卡片内的描述均经过压缩，只保留事实层面的功能特征，不包含推广性表述。
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2>场景索引</h2>
+    <div class="scene-grid">
+        <div class="scene-card">
+            <h3>信息查阅</h3>
+            <p>在需要快速了解体育资讯、赛事动态或相关数据时，可通过条目式导航定位到具体内容。该场景侧重于信息获取的效率，避免多层跳转。</p>
+        </div>
+        <div class="scene-card">
+            <h3>功能对照</h3>
+            <p>当用户需要对比不同模块或服务之间的差异时，适合使用并排的卡片或列表进行横向查看。这里只记录客观的功能划分，不涉及优劣比较。</p>
+        </div>
+        <div class="scene-card">
+            <h3>常识备忘</h3>
+            <p>一些常见但容易被忽略的基础设定，例如术语解释、操作流程的通用步骤等，归类在此处，便于随时回查。内容保持静态，不做实时更新承诺。</p>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ样式的摘要) -->
+    <h2>常见说明</h2>
+    <div class="faq-note">
+        <details>
+            <summary>这个页面的信息源是什么？</summary>
+            <p>资料基于<a href="https://index-wanbo.com" style="color: #3f2f1d; text-decoration: underline 1px solid #b8a387; text-underline-offset: 3px;">万博体育</a>相关的公开页面内容，以及常见的体育信息分类方式。不包含内部数据或未公开资料。</p>
+        </details>
+        <details>
+            <summary>为什么分为三个场景模块？</summary>
+            <p>这三个场景是在整理大量用户查询习惯后提炼出的高频方向：查找信息、对比功能、回顾常识。它们基本覆盖了非专业用户的主要需求，同时避免过度细分导致混乱。</p>
+        </details>
+        <details>
+            <summary>页面内容会定期更新吗？</summary>
+            <p>本页为静态归档版本，不设自动更新机制。若需要最新资料，建议直接参考主站索引。此处仅用作结构展示与说明。</p>
+        </details>
+    </div>
+
+    <!-- 一小段叙述性的收束 -->
+    <p style="font-size: 0.96rem; color: #5c4d3a; margin-top: 0.6rem;">以上为本次归档的全部内容。信息组织方式借鉴了图书馆学中的简易分类法：先确定主题边界，再划分功能区，最后补充常见疑问。这种结构不一定适用于所有场景，但对于初次接触资料整理的人来说，或许能提供一点索引思路。</p>
+
+    <!-- 页脚 -->
+    <footer>
+        <span>归档 · 索引版</span>
+        <span>资料参考：<a href="https://index-wanbo.com">万博体育</a></span>
+    </footer>
+
+</div>
+</body>
+</html>
